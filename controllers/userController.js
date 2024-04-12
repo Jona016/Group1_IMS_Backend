@@ -5,13 +5,12 @@ import jwt from 'jsonwebtoken';
 
 const create = async (req, res) => {
     try {
-        await user.save()
+        // await user.save()
         // const hashedPassword = await bcrypt.hash(req.body.password, 10);
         const user = new User({
           name: req.body.name,
           email: req.body.email,
-          role: req.body.role,
-          password: hashedPassword
+          password: req.body.password
         });
        
         const newUser = await user.save();
